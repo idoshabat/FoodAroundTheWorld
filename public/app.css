@@ -1,17 +1,27 @@
-body{
+body {
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnOL6OUzTCBHsCQWm8laQvOb8loJWYQUpUQ_O91VKBug&s');
-    background-size: cover; 
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-h1{
-    text-align: center;
-    font-size: xxx-large;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+.rtl-navbar {
+    direction: rtl;
+    /* Set text direction to right-to-left */
 }
 
-h2{
+/* Reverse text alignment within the dropdown menu */
+.rtl-navbar .dropdown-menu {
+    text-align: right;
+}
+
+h1 {
+    text-align: center;
+    font-size: xxx-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+h2 {
     text-align: right;
 }
 
@@ -20,22 +30,25 @@ ul.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #b3d3e9; /* Background color for the menu bar */
+    background-color: #b3d3e9;
+    /* Background color for the menu bar */
     display: flex;
     flex-direction: row;
-    height: 55px;;
+    height: 55px;
+    ;
 }
 
 /* Style the menu items */
 ul.menu li {
-/* Display the list items horizontally */
-    flex:1;
+    /* Display the list items horizontally */
+    flex: 1;
 }
 
 ul.menu li a {
     display: block;
     font-size: large;
-    color: magenta; /* Text color for menu items */
+    color: magenta;
+    /* Text color for menu items */
     text-align: center;
     padding: 17px 16px;
     text-decoration: none;
@@ -43,25 +56,28 @@ ul.menu li a {
 
 /* Change the color of menu items on hover */
 ul.menu li a:hover {
-    background-color: #f12ae7; /* Background color for menu items on hover */
+    background-color: #f12ae7;
+    /* Background color for menu items on hover */
     color: white;
 }
 
 
-#btn{
+#btn {
     height: 40px;
     width: 120px;
 }
-#btn:hover{
+
+#btn:hover {
     transition-duration: 2s;
     border-radius: 100%;
     cursor: pointer;
     background-color: magenta;
 }
 
-ul#sub-menu{
+ul#sub-menu {
     display: none;
-    padding: 0; /* Reset padding to 0 */
+    padding: 0;
+    /* Reset padding to 0 */
     margin: 0;
     text-align: center;
 }
@@ -71,7 +87,7 @@ ul.menu li:hover ul#sub-menu {
     background-color: aqua;
 }
 
-ul.menu li ul#sub-menu li{
+ul.menu li ul#sub-menu li {
     height: 55px;
     display: block;
 }
@@ -86,7 +102,9 @@ ul.menu li ul#sub-menu li{
 
 ul.menu li ul#sub-menu li:hover {
     color: white;
-    padding: 0; /* Set padding to zero */
-    margin: 0; /* Set margins to zero */
+    padding: 0;
+    /* Set padding to zero */
+    margin: 0;
+    /* Set margins to zero */
     width: 100%;
 }

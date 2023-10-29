@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const User = require('./models/user');
+const ejsMate = require('ejs-mate');
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/foodAroundTheWorld')
@@ -17,6 +18,7 @@ const app = express();
 app.set('views' , path.join(__dirname, 'views'));
 app.set('view engine' , 'ejs');
 app.use(express.static('public'));
+app.engine('ejs',ejsMate);
 
 let logged_in=false;
 
