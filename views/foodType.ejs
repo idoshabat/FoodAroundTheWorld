@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="\app.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <h1>
+        מתכונים מהעולם
+    </h1>
+
+    <ul class="menu">
+        <li>
+            <a href="/myArea">איזור אישי</a>
+        </li>
+
+        <li>
+            <a href="/recommendation">המלצות</a>
+        </li>
+
+        <li>
+            <a href="/food">מאכלים</a>
+            <ul id="sub-menu">
+                <a href="/food/italian">
+                    <li>איטלקי</li>
+                </a>
+                <a href="/food/mexican">
+                    <li>מקסיקני</li>
+                </a>
+                <a href="/food/indian">
+                    <li>הודי</li>
+                </a>
+                <a href="/food/Moroccan">
+                    <li>מרוקאי</li>
+                </a>
+                <a href="/food/Asian">
+                    <li>אסיאתי</li>
+                </a>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/">בית</a>
+        </li>
+    </ul>
+
+    <h2>
+        <%=foodType%>
+    </h2>
+
+    <script src="static\app.js"></script>
+</body>
+
+</html>
