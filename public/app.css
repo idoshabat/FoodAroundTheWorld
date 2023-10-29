@@ -108,3 +108,9 @@ ul.menu li ul#sub-menu li:hover {
     /* Set margins to zero */
     width: 100%;
 }
+
+
+#foodType{
+    background-color: #a1a381c6;
+    /* opacity: 1; */
+}
