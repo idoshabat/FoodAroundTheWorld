@@ -1,0 +1,48 @@
+<% layout('layouts/basic') %>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card mb-3">
+                <img src="<%=user.image%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%=user.firstName%>
+                    </h5>
+                    <p class="card-text">
+                        <%=user.lastName%>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">
+                        <%=user.email%>
+                    </li>
+                    <li class="list-group-item">
+                        <%=user.password%>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <a class="card-link btn btn-warning" href="/users/<%=user._id%>/edit">Edit</a>
+                    <a class="card-link btn btn-primary" href="/users">Back</a>
+                    <form class="d-inline" action="/users/<%=user._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
+            </div>
+        </div>
+
+        <%if(logout){ %>
+            <div class="col-6 offset-3">
+                <form class="d-inline" action="/logout" method="POST">
+                    <button class="btn btn-danger">Logout</button>
+                </form>
+            </div>
+        <% } %>
+
+
+        <div class="col-6 offset-3">
+            <a href="/users">חזרה לכל משתמשי האתר</a>
+        </div>
+    </div>

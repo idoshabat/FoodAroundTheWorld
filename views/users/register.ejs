@@ -1,0 +1,37 @@
+<% layout('layouts/basic') %>
+
+<div class="row">
+    <h1 class="text-center">Create an account</h1>
+    <div class="col-6 offset-3">
+        <form action="/register" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="firstName">First name</label>
+                <input class="form-control" type="text" id="firstName" name="user[firstName]" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="lastName">Last name</label>
+                <input class="form-control" type="text" id="lastName" name="user[lastName]" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="Email">Email</label>
+                <input class="form-control" type="email" id="email" name="user[email]" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" id="password" name="user[password]" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="image">Image</label>
+                <input class="form-control" type="text" id="image" name="user[image]">
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-info">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
