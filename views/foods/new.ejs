@@ -1,0 +1,41 @@
+<% layout('layouts/basic') %>
+
+    <div class="row">
+        <h1 class="text-center">Adding food</h1>
+        <div class="col-6 offset-3">
+            <form action="/newFood" method="POST">
+
+                <div class="mb-3">
+                    <label for="food[foodType]">Food type : </label> <br>
+                    <select class="mt-3" name="food[foodType]">
+                        <% const foodTypes=['איטלקי','מקסיקני', 'הודי' ,'מרוקאי' , 'אסיאתי' , 'תימני' ]; %>
+                            <% for(let foodType of foodTypes){ %>
+                                <option value="<%=foodType%>">
+                                    <%=foodType%>
+                                </option>
+                                <% } %>
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="food[name]" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="recipe">Recipe</label>
+                    <textarea class="form-control" type="text" id="recipe" name="food[recipe]"
+                        rows="7"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image</label>
+                    <input class="form-control" type="text" id="image" name="food[image]" required>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-info">Add recipe</button>
+                </div>
+            </form>
+        </div>
+    </div>

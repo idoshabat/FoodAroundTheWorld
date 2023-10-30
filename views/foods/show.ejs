@@ -1,0 +1,36 @@
+<% layout('layouts/basic') %>
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card mb-3">
+                <img src="<%=food.image%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%=food.name%>
+                    </h5>
+                    <p class="card-text">
+                        <%=food.foodType%>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">
+                        <%=food.recipe%>
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <a class="card-link btn btn-warning" href="/foods/<%=food._id%>/edit">Edit</a>
+                    <a class="card-link btn btn-primary" href="/foods/all">Back</a>
+                    <form class="d-inline" action="/foods/<%=food._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 offset-3">
+            <a href="/foods/all">חזרה לכל המאכלים</a>
+        </div>
+    </div>

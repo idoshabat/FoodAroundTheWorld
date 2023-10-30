@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnOL6OUzTCBHsCQWm8laQvOb8loJWYQUpUQ_O91VKBug&s');
+    background-image: url('https://cdn.pixabay.com/photo/2017/03/14/08/10/wood-2142241_1280.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,12 +15,16 @@ body {
     text-align: right;
 }
 
-h1 {
+#title {
     text-align: center;
-    font-size: xxx-large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    height: 70px;
+    font-size: 65px !important;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: 'Amatic SC', sans-serif;
 }
 
+
+/*
 h2 {
     text-align: right;
 }
@@ -109,8 +113,7 @@ ul.menu li ul#sub-menu li:hover {
     width: 100%;
 }
 
-
-#foodType{
+*/ #foodType {
     background-color: #a1a381c6;
     /* opacity: 1; */
 }
