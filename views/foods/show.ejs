@@ -18,10 +18,10 @@
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a class="card-link btn btn-warning" href="/foods/<%=food._id%>/edit">Edit</a>
-                    <a class="card-link btn btn-primary" href="/foods">Back</a>
+                    <a class="card-link btn btn-primary show_buttons back_button" href="/foods">Back</a>
+                    <a class="card-link btn btn-warning show_buttons" href="/foods/<%=food._id%>/edit">Edit</a>
                     <form class="d-inline" action="/foods/<%=food._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger show_buttons">Delete</button>
                     </form>
                 </div>
                 <div class="card-footer text-muted">

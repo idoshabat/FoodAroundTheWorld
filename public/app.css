@@ -83,3 +83,13 @@ h1{
 #show_buttons a {
     flex:1;
 } */
+
+.show_buttons {
+    width: 115px; /* Set your desired width here */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.back_button{
+    margin-right: -15px;
+}

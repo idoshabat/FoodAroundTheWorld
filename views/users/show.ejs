@@ -1,7 +1,7 @@
 <% layout('layouts/basic') %>
 
     <div class="row">
-        <div class="col-6 offset-3">
+        <div class="col-7 offset-3">
             <div class="card mb-3">
                 <img src="<%=user.image%>" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -20,16 +20,17 @@
                         <%=user.password%>
                     </li>
                 </ul>
-                <div id="show_buttons" class="card-body d-flex justify-content-between">
-                    <a class="card-link btn btn-primary flex-fill" href="/users">Back</a>
+                <div class="card-body d-flex justify-content-between">
+                    <a class="card-link btn btn-primary show_buttons back_button" href="/users">Back</a>
                     <% if(logout){ %>
-                        <a class="card-link btn btn-warning flex-fill" href="/users/<%=user._id%>/edit">Edit</a>
+                        <a class="card-link btn btn-warning show_buttons" href="/users/<%=user._id%>/edit">Edit</a>
                         <form class="d-inline" action="/users/<%=user._id%>?_method=DELETE" method="POST">
-                            <a><button class="btn btn-danger flex-fill">Delete</button></a>
+                             <button class="btn btn-danger show_buttons">Delete</button>
                         </form>
-                        <a href="/recommendations/<%=user._id%>/new"><button
-                                class="btn btn-success flex-fill">Recommend</button></a>
-                        <% } %>
+                        <a href="/recommendations/<%=user._id%>/new">
+                            <button class="btn btn-success show_buttons">Review</button>
+                        </a>
+                    <% } %>
                 </div>
                 <div class="card-footer text-muted">
                     2 days ago
