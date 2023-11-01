@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const User = require('./user'); // Assuming User is the correct model you want to import
+const User = require('./user');
+const Food = require('./food');
+
 const Schema = mongoose.Schema;
 
 const RecommendationSchema = new Schema({
@@ -7,8 +9,11 @@ const RecommendationSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    food: String,
-    recipe: String,
+    food: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Food'
+    },
+
     description: String,
 });
 

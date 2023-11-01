@@ -19,7 +19,7 @@
                 </ul>
                 <div class="card-body">
                     <a class="card-link btn btn-warning" href="/foods/<%=food._id%>/edit">Edit</a>
-                    <a class="card-link btn btn-primary" href="/foods/all">Back</a>
+                    <a class="card-link btn btn-primary" href="/foods">Back</a>
                     <form class="d-inline" action="/foods/<%=food._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Delete</button>
                     </form>
@@ -31,6 +31,6 @@
         </div>
 
         <div class="col-6 offset-3">
-            <a href="/foods/all">חזרה לכל המאכלים</a>
+            <a href="/foods">חזרה לכל המאכלים</a>
         </div>
     </div>

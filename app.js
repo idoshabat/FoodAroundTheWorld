@@ -70,9 +70,24 @@ app.get('/foods/new' , (req,res) => {
     res.render('foods/new')
 })
 
-app.get('/foods/all', async (req, res) => {
-    const foods = await Food.find({});
-    res.render('foods/index', { foods })
+app.get('/foods' , async (req,res) => {
+    const {foodType} =  req.query;
+    const foodTypes={
+        italian: 'איטלקי',
+        mexican: 'מקסיקני',
+        indian: 'הודי',
+        Moroccan: 'מרוקאי',
+        Asian: 'אסיאתי'
+    }
+
+    if(foodType){
+        const foods = await Food.find({foodType:foodTypes[foodType]});
+        res.render('foods/index', { foods,catagory: foodTypes[foodType]})
+    }
+    else{
+        const foods = await Food.find({});
+    res.render('foods/index', { foods ,catagory: null})
+    }
 })
 
 
@@ -95,9 +110,28 @@ app.get('/foods/:id/show', async(req, res) => {
 })
 
 
+
+
+app.get('/recommendations/:id/new' ,async (req,res) => {
+    const {id} = req.params;
+    const user =await User.findById(id);
+    console.log('##########################');
+    console.log(user);
+    console.log('##########################');
+    const foods = await Food.find({});
+    res.render('recommendations/new' , {foods , user})
+})
+
+app.get('/recommendations' ,async (req,res) => {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!11');
+    const recs = await Recommendation.find().populate('user food').exec(); 
+    console.log('logged in'+logged_in);
+    res.render('recommendations/index' , {recs ,logged_in}) 
+})
+
 app.get('/:page', (req, res) => {
     const { page } = req.params;
-    res.render(`${page}`)
+    res.render(`${page}`) 
 })
 
 app.post('/register', async (req, res) => {
@@ -109,7 +143,6 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     const { email, password } = req.body.user;
-    console.log(email, password);
     const user = await User.findOne({ email: req.body.user.email });
 
     if (user.password === password) {
@@ -124,14 +157,29 @@ app.post('/login', async (req, res) => {
 
 app.post('/logout', async (req, res) => {
     logged_in=null;
-    res.redirect(`home`)
+    res.redirect(`users/login`)
 })
 
 app.post('/newFood', async (req, res) => {
     const {name , foodType , recipe , image} = req.body.food;
     const food = new Food({name,foodType,recipe,image});
     await food.save();
-    res.redirect('/foods/all')
+    res.redirect('/foods')
+})
+
+app.post('/newRecommendation', async (req, res) => {
+    const { userId, foodId, description } = req.body.recommendation;
+    const rec = new Recommendation({
+        user: userId,
+        food: foodId,
+        description: description
+    });
+    await rec.save();
+    await rec.populate('user'); // Wait for the population to complete
+    // console.log(rec.user); // You can access the populated user data here
+    // console.log('!!!!!!');
+    // console.log(rec);
+    res.redirect('/recommendations');
 })
 
 app.put('/users/:id', async (req, res) => {
@@ -146,6 +194,8 @@ app.put('/foods/:id', async (req, res) => {
     res.redirect(`${updatedFood._id}/show`)
 })
 
+
+
 app.delete('/users/:id', async (req, res) => {
     const { id } = req.params;
     const updatedUser = await User.findByIdAndDelete(id);
@@ -158,6 +208,22 @@ app.delete('/foods/:id', async (req, res) => {
     res.redirect('/foods/all')
 })
 
+app.delete('/deleteRecommendation/:id' ,async (req,res) => {
+    const {id} = req.params;
+    const rec= await Recommendation.findByIdAndDelete(id);
+    res.redirect('/recommendations')
+})
+
 app.listen(3000, async () => {
     console.log('Yeaaaa');
 })
+
+
+function findKeyByValue(object, valueToFind) {
+    for (const key in object) {
+        if (object[key] === valueToFind) {
+            return key;
+        }
+    }
+    return null; // Return null if the value is not found
+}

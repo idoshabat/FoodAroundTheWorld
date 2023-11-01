@@ -20,12 +20,16 @@
                         <%=user.password%>
                     </li>
                 </ul>
-                <div class="card-body">
-                    <a class="card-link btn btn-warning" href="/users/<%=user._id%>/edit">Edit</a>
-                    <a class="card-link btn btn-primary" href="/users">Back</a>
-                    <form class="d-inline" action="/users/<%=user._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
+                <div id="show_buttons" class="card-body d-flex justify-content-between">
+                    <a class="card-link btn btn-primary flex-fill" href="/users">Back</a>
+                    <% if(logout){ %>
+                        <a class="card-link btn btn-warning flex-fill" href="/users/<%=user._id%>/edit">Edit</a>
+                        <form class="d-inline" action="/users/<%=user._id%>?_method=DELETE" method="POST">
+                            <a><button class="btn btn-danger flex-fill">Delete</button></a>
+                        </form>
+                        <a href="/recommendations/<%=user._id%>/new"><button
+                                class="btn btn-success flex-fill">Recommend</button></a>
+                        <% } %>
                 </div>
                 <div class="card-footer text-muted">
                     2 days ago
@@ -39,10 +43,10 @@
                     <button class="btn btn-danger">Logout</button>
                 </form>
             </div>
-        <% } %>
+        <%  }%>    
 
 
-        <div class="col-6 offset-3">
-            <a href="/users">חזרה לכל משתמשי האתר</a>
-        </div>
+                <div class="col-6 offset-3">
+                    <a href="/users">חזרה לכל משתמשי האתר</a>
+                </div>
     </div>

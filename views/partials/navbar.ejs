@@ -1,8 +1,10 @@
 <% const foodTypes=['איטלקי','מקסיקני', 'הודי' ,'מרוקאי' , 'אסיאתי' , 'תימני','הכל']; %>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark rtl-navbar">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark rtl-navbar ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Recipes</a>
+        <a class="navbar-brand" href="/">
+            <img src="https://cdn.pixabay.com/photo/2013/07/12/12/56/home-146585_1280.png" alt="Home" class="home-icon">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,16 +17,16 @@
                         מתכונים
                     </a>
                     <ul id="foodType" class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/foods/all">הכל</a></li>
-                        <li><a class="dropdown-item" href="/foods/italian">איטלקי</a></li>
-                        <li><a class="dropdown-item" href="/foods/mexican">מקסיקני</a></li>
-                        <li><a class="dropdown-item" href="/foods/indian">הודי</a></li>
-                        <li><a class="dropdown-item" href="/foods/Moroccan">מרוקאי</a></li>
-                        <li><a class="dropdown-item" href="/foods/Asian">אסיאתי</a></li>
+                        <li><a class="dropdown-item" href="/foods">הכל</a></li>
+                        <li><a class="dropdown-item" href="/foods/?foodType=italian">איטלקי</a></li>
+                        <li><a class="dropdown-item" href="/foods/?foodType=mexican">מקסיקני</a></li>
+                        <li><a class="dropdown-item" href="/foods/?foodType=indian">הודי</a></li>
+                        <li><a class="dropdown-item" href="/foods/?foodType=Moroccan">מרוקאי</a></li>
+                        <li><a class="dropdown-item" href="/foods/?foodType=Asian">אסיאתי</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/recommendation">המלצות</a>
+                    <a class="nav-link" href="/recommendations">המלצות</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/myArea">איזור אישי</a>

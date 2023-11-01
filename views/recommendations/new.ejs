@@ -3,34 +3,34 @@
 <div class="row">
     <h1 class="text-center">Create a new recommendation</h1>
     <div class="col-6 offset-3">
-        <form action="/new" method="POST">
+        <form action="/newRecommendation" method="POST">
             <div class="mb-3">
-                <label class="form-label" for="firstName">First name</label>
-                <input class="form-control" type="text" id="firstName" name="user[firstName]" required>
+                <label class="form-label" for="recommendation[userId]">Recommendation by <%=user.firstName+" "+user.lastName%></label>
+                <input type="hidden" name="recommendation[userId]" value="<%= user._id %>">
+
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="lastName">Last name</label>
-                <input class="form-control" type="text" id="lastName" name="user[lastName]" required>
+                <label for="recommendation[foodId]">Food: </label> <br>
+                <select class="mt-3" name="recommendation[foodId]">
+                        <% for(let food of foods){ %>
+                            <option value="<%=food._id%>">
+                                <%=food.name%>
+                            </option>
+                            <% } %>
+
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="recommendation[description]">Description</label>
+                <textarea class="form-control" type="text" id="description" name="recommendation[description]"
+                    rows="7"></textarea>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="Email">Email</label>
-                <input class="form-control" type="email" id="email" name="user[email]" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" for="password">Password</label>
-                <input class="form-control" type="password" id="password" name="user[password]" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" for="image">Image</label>
-                <input class="form-control" type="text" id="image" name="user[image]">
-            </div>
-
-            <div class="mb-3">
-                <button class="btn btn-info">Register</button>
+                <button class="btn btn-info">Add recommendation</button>
             </div>
         </form>
     </div>
